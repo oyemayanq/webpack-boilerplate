@@ -2,8 +2,16 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
+  output: {
+    assetModuleFilename: "images/[hash][ext][query]",
+  },
+
   module: {
     rules: [
+      {
+        test: /\.(png|jpe?g|svg|gif)$/i,
+        type: "asset",
+      },
       {
         test: /\.s?css$/i,
         use: [
